@@ -3,24 +3,29 @@ from selenium.webdriver.support.ui import Select
 from selenium.webdriver.common.by import By
 import time
 
+
 driver = webdriver.Chrome()
 
 driver.get("https://venda-imoveis.caixa.gov.br/sistema/busca-imovel.asp?hdnLocalidade=9859&hdnModalidade=Selecione&hdnValorSimulador=&hdnAceitaFGTS=&hdnAceitaFinanciamento=")
 
-time.sleep(2)
+time.sleep(3)
 
 select_State = driver.find_element(By.ID, "cmb_estado")
-
 select1 = Select(select_State)
-
 select1.select_by_visible_text("SP")
 
-time.sleep(2)
+time.sleep(3)
+       
+select_city = driver.find_element(By.ID, "cmb_cidade")
+selectCity = Select(select_city)
+selectCity.select_by_index("SAO PAULO")
 
+
+time.sleep(3)
 btn_next = driver.find_element(By.ID, "btn_next0")
 btn_next.click()
 
-time.sleep(2)
+time.sleep(3)
 
 select_TipoImovel = driver.find_element(By.ID, "cmb_tp_imovel")
 select2 = Select(select_TipoImovel)
